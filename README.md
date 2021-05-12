@@ -1,7 +1,7 @@
 # git_of_study
-### 入门教程
+### git入门教程
 
-#### windows
+#### windows安装
 
 ```
 git config --global user.name "lshenhe"
@@ -11,7 +11,7 @@ ssh-keygen -t rsa -C "792409563@qq.com"
 把C:\Users\79240\.ssh\id_rsa.pub 的内容拷贝到https://github.com/settings/keys
 ```
 
-#### Linux
+#### Linux安装
 
 ```
 git config --global user.name "lshenhe"
@@ -21,7 +21,7 @@ ssh-keygen -t rsa -C "792409563@qq.com"
 把/home/sam/.ssh/id_rsa.pub 的内容拷贝到https://github.com/settings/keys
 ```
 
-### 常用命令
+#### git常用命令
 
 ```
 git status
@@ -30,7 +30,7 @@ git commit -m "xxx"
 git push origin master
 ```
 
-### 常见问题
+#### git常见问题
 
 ```
 git push解决办法： ! [remote rejected] master -> master (pre-receive hook declined)
@@ -63,4 +63,76 @@ git push -u origin 分支名
 git clone -b 分支名 仓库地址
 ```
 
+### cmake入门教程
+
+#### Linux安装
+
+```
+输入网址：https://cmake.org/download/
+下载cmake-3.20.2.tar.gz
+
+sudo apt install libssl-dev
+tar -xvf cmake-3.14.5.tar
+cd cmake-3.14.5
+./bootstrap 
+make
+make install
+
+检查cmake是否安装成功
+执行cmake --version
+```
+
+### zmq入门教程
+
+#### ubuntu zmq安装及基础测试
+
+```
+sudo apt install libtool pkg-config build-essential autoconf automake
+
+编译安装zmq核心库
+git clone git clone git://github.com/zeromq/libzmq
+./autogen.sh
+./configure && make check
+sudo make install
+sudo ldconfig
+cd ..
+
+安装zmq使用的加密库
+输入网址：https://doc.libsodium.org/下载libsodium-1.0.18.tar.gz
+
+tar -zxf libsodium-1.0.18-stable.tar.gz 
+cd libsodium-stable/
+./configure && make check
+sudo make install 
+sudo ldconfig 
+cd ..
+
+编译安装zmq的c绑定
+git clone git://github.com/zeromq/czmq.git
+cd czmq
+./autogen.sh
+./configure && make check
+sudo make install
+sudo ldconfig
+cd ..
+
+编译安装zmqc++绑定
+git clone git@github.com:zeromq/cppzmq.git
+cd cppzmq
+sudo cp zmq.hpp /usr/local/include/
+cd ..
+
+学习zmq
+根据zmq官网的guide学习
+git clone git@github.com:booksbyus/zguide.git
+cd zguide/examples/C
+sudo apt install uuid-dev 
+./build all
+
+T1输入：
+./hwserver
+T2输入：
+./hwclient
+
+```
 
