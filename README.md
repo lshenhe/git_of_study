@@ -136,3 +136,26 @@ T2输入：
 
 ```
 
+### protobuf安装教程
+
+```
+sudo apt-get install autoconf automake libtool curl make g++ unzip
+
+可以到https://github.com/protocolbuffers/protobuf/releases/latest网页上下载最新版本，看个人需求，如果是只需要c++，则选择protobuf-cpp-[VERSION].tar.gz；
+
+又或者git clone最新的
+git clone https://github.com/protocolbuffers/protobuf.git
+cd protobuf
+git submodule update --init --recursive
+./autogen.sh
+./configure
+
+make
+make check
+sudo make install
+sudo ldconfig # refresh shared library cache.
+
+检查是否安装完成
+protoc --version
+```
+
